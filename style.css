@@ -823,12 +823,23 @@ a:hover { text-decoration: underline; }
     bottom: auto;
     width: auto;
     max-width: none;
-    max-height: 44dvh;
+    max-height: 50dvh;
   }
+  .search-shell { padding: 10px 12px 8px; }
+  .brand-row { margin-bottom: 6px; }
+  .search-box { height: 38px; margin-bottom: 8px; }
+  #results { min-height: 92px; }
+  #more { flex-shrink: 0; margin: 6px 12px 8px; height: 32px; }
   .map-topbar { top: auto; bottom: 16px; right: 10px; left: auto; }
   .top-actions .pill-action:not(:first-child) { display: none; }
   .bottom-left-dock { bottom: 16px; left: 10px; }
   .layers-tile-btn { width: 62px; height: 62px; }
+  .layers-menu {
+    bottom: 72px;
+    width: min(316px, calc(100vw - 20px));
+    max-height: 68dvh;
+    overflow-y: auto;
+  }
   #detail {
     top: auto;
     left: 0;
@@ -836,8 +847,13 @@ a:hover { text-decoration: underline; }
     bottom: 0;
     width: 100%;
     max-width: none;
-    max-height: 74dvh;
+    max-height: 76dvh;
+    z-index: 1100;
     border-radius: 18px 18px 0 0;
+  }
+  #app.detail-open .bottom-left-dock,
+  #app.detail-open .map-topbar {
+    display: none;
   }
   .leaflet-control-zoom { display: none; }
 }
