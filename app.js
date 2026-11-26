@@ -407,6 +407,13 @@ async function showDetail(r) {
 
   const detailEl = $('#detail');
   detailEl.hidden = false;
+  $('#app').classList.add('detail-open');
+  if ($('#layers-menu')) {
+    $('#layers-menu').hidden = true;
+    $('#layers-btn')?.setAttribute('aria-expanded', 'false');
+  }
+  const infoEl = document.querySelector('.info-popover');
+  if (infoEl) infoEl.open = false;
   const gmapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(r.coordinates ? r.coordinates.join(',') : r.address)}`;
   const srcLabel = r.coordinateSource || '已定位';
 
@@ -448,6 +455,7 @@ async function showDetail(r) {
 
   detailEl.querySelector('.detail-close').onclick = () => {
     detailEl.hidden = true;
+    $('#app').classList.remove('detail-open');
     activeId = null;
     activeRingLayer?.clearLayers();
     document.querySelectorAll('.result.active').forEach(el => el.classList.remove('active'));
